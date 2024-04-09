@@ -40,8 +40,9 @@ const Index = () => {
   return (
     <Box>
       {/* Header */}
-      <Box bg="gold" py={12}>
-        <Heading as="h1" size="3xl" textAlign="center" color="black" fontFamily="playfair display, serif">
+      <Box bg="white" py={8} display="flex" alignItems="center" justifyContent="center">
+        <Image src="path/to/your/logo.png" alt="Noga Amir Studio Logo" boxSize="100px" mr={4} />
+        <Heading as="h1" size="3xl" color="black" fontFamily="playfair display, serif">
           NOGA AMIR STUDIO
         </Heading>
       </Box>
