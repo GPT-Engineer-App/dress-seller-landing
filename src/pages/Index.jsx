@@ -6,12 +6,17 @@ const Index = () => {
   const [selectedImage, setSelectedImage] = useState(null);
   const [isOpen, setIsOpen] = useState(false);
   const [bgIndex, setBgIndex] = useState(0);
+  const [bgOpacity, setBgOpacity] = useState(1);
 
   const bgImages = ["https://images.unsplash.com/photo-1483985988355-763728e1935b?w=1080", "https://images.unsplash.com/photo-1524648829700-99c448a9bbbe?w=1080", "https://images.unsplash.com/photo-1543087903-1ac2ec7aa8c5?w=1080"];
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setBgIndex((prevIndex) => (prevIndex + 1) % bgImages.length);
+      setBgOpacity(0);
+      setTimeout(() => {
+        setBgIndex((prevIndex) => (prevIndex + 1) % bgImages.length);
+        setBgOpacity(1);
+      }, 1000);
     }, 7000);
 
     return () => {
@@ -48,7 +53,7 @@ const Index = () => {
       </Box>
 
       {}
-      <Box p={8} backgroundImage={`url(${bgImages[bgIndex]})`} backgroundSize="cover" backgroundPosition="center" minHeight="400px" display="flex" alignItems="center" justifyContent="center" textAlign="center">
+      <Box p={8} backgroundImage={`url(${bgImages[bgIndex]})`} backgroundSize="cover" backgroundPosition="center" minHeight="400px" display="flex" alignItems="center" justifyContent="center" textAlign="center" style={{ opacity: bgOpacity, transition: "opacity 1s" }}>
         <Box bg="rgba(255, 255, 255, 0.8)" p={8} borderRadius="md">
           <Heading as="h2" size="2xl" mb={6} fontFamily="playfair display, serif">
             About Me
