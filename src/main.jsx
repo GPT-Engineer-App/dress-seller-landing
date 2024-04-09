@@ -12,8 +12,8 @@ const colors = {
 };
 
 const fonts = {
-  heading: "Playfair Display, serif",
-  body: "Lato, sans-serif",
+  heading: "Cormorant Garamond, serif",
+  body: "Montserrat, sans-serif",
 };
 
 const theme = extendTheme({ colors, fonts });
