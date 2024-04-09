@@ -52,9 +52,10 @@ const Index = () => {
         </Heading>
       </Box>
 
-      {}
-      <Box p={8} backgroundImage={`url(${bgImages[bgIndex]})`} backgroundSize="cover" backgroundPosition="center" minHeight="400px" display="flex" alignItems="center" justifyContent="center" textAlign="center" style={{ opacity: bgOpacity, transition: "opacity 1s" }}>
-        <Box bg="rgba(255, 255, 255, 0.8)" p={8} borderRadius="md">
+      <Box position="relative" minHeight="400px">
+        <Box position="absolute" top={0} left={0} right={0} bottom={0} backgroundImage={`url(${bgImages[bgIndex]})`} backgroundSize="cover" backgroundPosition="center" style={{ opacity: bgOpacity, transition: "opacity 1s" }} />
+        <Box position="relative" p={8} display="flex" alignItems="center" justifyContent="center" textAlign="center" minHeight="400px">
+          <Box bg="rgba(255, 255, 255, 0.8)" p={8} borderRadius="md">
           <Heading as="h2" size="2xl" mb={6} fontFamily="playfair display, serif">
             About Me
           </Heading>
@@ -87,6 +88,7 @@ const Index = () => {
           </Link>
           <Text>Click the button to start a WhatsApp conversation with me!</Text>
         </VStack>
+      </Box>
       </Box>
       <ImageModal isOpen={isOpen} onClose={closeModal} image={dresses[selectedImage]} onPrev={prevImage} onNext={nextImage} />
     </Box>
