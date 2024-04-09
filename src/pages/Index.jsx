@@ -29,7 +29,7 @@ const Index = () => {
         </Heading>
         <SimpleGrid columns={[1, 2, 3]} spacing={4}>
           {dresses.map((dress, index) => (
-            <Image key={index} src={dress} alt={`Dress ${index + 1}`} />
+            <Image key={index} src={dress} alt={`Dress ${index + 1}`} boxSize="300px" objectFit="cover" />
           ))}
         </SimpleGrid>
       </Box>
