@@ -1,8 +1,27 @@
-import React from "react";
-import { Box, VStack, Heading, Text, Image, SimpleGrid, Link, IconButton } from "@chakra-ui/react";
-import { FaWhatsapp } from "react-icons/fa";
+import React, { useState } from "react";
+import { Box, VStack, Heading, Text, Image, SimpleGrid, Link, IconButton, Modal, ModalOverlay, ModalContent, ModalBody, ModalCloseButton } from "@chakra-ui/react";
+import { FaWhatsapp, FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
 const Index = () => {
+  const [selectedImage, setSelectedImage] = useState(null);
+  const [isOpen, setIsOpen] = useState(false);
+
+  const openModal = (index) => {
+    setSelectedImage(index);
+    setIsOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsOpen(false);
+  };
+
+  const prevImage = () => {
+    setSelectedImage((selectedImage - 1 + dresses.length) % dresses.length);
+  };
+
+  const nextImage = () => {
+    setSelectedImage((selectedImage + 1) % dresses.length);
+  };
   const dresses = ["https://images.unsplash.com/photo-1708551471292-acc2a306b433?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1MDcxMzJ8MHwxfHNlYXJjaHwxfHxiZWF1dGlmdWwlMjBkcmVzcyUyMDF8ZW58MHx8fHwxNzEyNjQ0ODQ5fDA&ixlib=rb-4.0.3&q=80&w=1080", "https://images.unsplash.com/photo-1504051771394-dd2e66b2e08f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1MDcxMzJ8MHwxfHNlYXJjaHwxfHxiZWF1dGlmdWwlMjBkcmVzcyUyMDJ8ZW58MHx8fHwxNzEyNjQ0ODQ5fDA&ixlib=rb-4.0.3&q=80&w=1080", "https://images.unsplash.com/photo-1466695108335-44674aa2058b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1MDcxMzJ8MHwxfHNlYXJjaHwxfHxiZWF1dGlmdWwlMjBkcmVzcyUyMDN8ZW58MHx8fHwxNzEyNjQ0ODQ5fDA&ixlib=rb-4.0.3&q=80&w=1080", "https://images.unsplash.com/photo-1622266234859-e4654e3587d8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1MDcxMzJ8MHwxfHNlYXJjaHwxfHxiZWF1dGlmdWwlMjBkcmVzcyUyMDR8ZW58MHx8fHwxNzEyNjQ0ODUwfDA&ixlib=rb-4.0.3&q=80&w=1080", "https://images.unsplash.com/photo-1519554318711-aaf73ece6ff9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1MDcxMzJ8MHwxfHNlYXJjaHwxfHxiZWF1dGlmdWwlMjBkcmVzcyUyMDV8ZW58MHx8fHwxNzEyNjQ0ODUwfDA&ixlib=rb-4.0.3&q=80&w=1080", "https://images.unsplash.com/photo-1617187735632-727b180e432d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1MDcxMzJ8MHwxfHNlYXJjaHwxfHxiZWF1dGlmdWwlMjBkcmVzcyUyMDZ8ZW58MHx8fHwxNzEyNjQ0ODUxfDA&ixlib=rb-4.0.3&q=80&w=1080"];
 
   return (
@@ -29,7 +48,9 @@ const Index = () => {
         </Heading>
         <SimpleGrid columns={[1, 2, 3]} spacing={4}>
           {dresses.map((dress, index) => (
-            <Image key={index} src={dress} alt={`Dress ${index + 1}`} boxSize="300px" objectFit="cover" />
+            <Link key={index} onClick={() => openModal(index)}>
+              <Image src={dress} alt={`Dress ${index + 1}`} boxSize="400px" objectFit="cover" />
+            </Link>
           ))}
         </SimpleGrid>
       </Box>
@@ -46,8 +67,23 @@ const Index = () => {
           <Text>Click the button to start a WhatsApp conversation with me!</Text>
         </VStack>
       </Box>
+      <ImageModal isOpen={isOpen} onClose={closeModal} image={dresses[selectedImage]} onPrev={prevImage} onNext={nextImage} />
     </Box>
   );
 };
+
+const ImageModal = ({ isOpen, onClose, image, onPrev, onNext }) => (
+  <Modal isOpen={isOpen} onClose={onClose} size="full">
+    <ModalOverlay />
+    <ModalContent bg="transparent">
+      <ModalCloseButton color="white" size="lg" />
+      <ModalBody display="flex" justifyContent="center" alignItems="center">
+        <IconButton icon={<FaChevronLeft />} onClick={onPrev} size="lg" variant="ghost" color="white" pos="absolute" left={4} />
+        <Image src={image} maxH="90vh" />
+        <IconButton icon={<FaChevronRight />} onClick={onNext} size="lg" variant="ghost" color="white" pos="absolute" right={4} />
+      </ModalBody>
+    </ModalContent>
+  </Modal>
+);
 
 export default Index;
