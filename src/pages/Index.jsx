@@ -8,15 +8,15 @@ const Index = () => {
   return (
     <Box>
       {/* Header */}
-      <Box bg="purple.500" py={8}>
-        <Heading as="h1" size="2xl" textAlign="center" color="white">
-          Elegant Dresses
+      <Box bg="gold" py={12}>
+        <Heading as="h1" size="3xl" textAlign="center" color="black" fontFamily="playfair display, serif">
+          NOGA AMIR STUDIO
         </Heading>
       </Box>
 
       {/* About Me */}
       <Box p={8}>
-        <Heading as="h2" size="xl" mb={4}>
+        <Heading as="h2" size="2xl" mb={6} fontFamily="playfair display, serif">
           About Me
         </Heading>
         <Text>Hi, I'm Sarah! I'm passionate about creating beautiful and elegant dresses for every occasion. With years of experience in fashion design, I strive to bring you the best quality dresses that make you feel confident and stunning.</Text>
@@ -24,7 +24,7 @@ const Index = () => {
 
       {/* Gallery */}
       <Box p={8}>
-        <Heading as="h2" size="xl" mb={4}>
+        <Heading as="h2" size="2xl" mb={6} fontFamily="playfair display, serif">
           Dress Gallery
         </Heading>
         <SimpleGrid columns={[1, 2, 3]} spacing={4}>
