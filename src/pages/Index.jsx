@@ -1,6 +1,6 @@
 import React from "react";
-import { Box, VStack, Heading, Text, Image, SimpleGrid, Link, IconButton, Button } from "@chakra-ui/react";
-import { FaWhatsapp, FaEnvelope, FaPhone } from "react-icons/fa";
+import { Box, VStack, Heading, Text, Image, SimpleGrid, Link, IconButton } from "@chakra-ui/react";
+import { FaWhatsapp } from "react-icons/fa";
 
 const Index = () => {
   const dresses = ["https://images.unsplash.com/photo-1708551471292-acc2a306b433?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1MDcxMzJ8MHwxfHNlYXJjaHwxfHxiZWF1dGlmdWwlMjBkcmVzcyUyMDF8ZW58MHx8fHwxNzEyNjQ0ODQ5fDA&ixlib=rb-4.0.3&q=80&w=1080", "https://images.unsplash.com/photo-1504051771394-dd2e66b2e08f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1MDcxMzJ8MHwxfHNlYXJjaHwxfHxiZWF1dGlmdWwlMjBkcmVzcyUyMDJ8ZW58MHx8fHwxNzEyNjQ0ODQ5fDA&ixlib=rb-4.0.3&q=80&w=1080", "https://images.unsplash.com/photo-1466695108335-44674aa2058b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1MDcxMzJ8MHwxfHNlYXJjaHwxfHxiZWF1dGlmdWwlMjBkcmVzcyUyMDN8ZW58MHx8fHwxNzEyNjQ0ODQ5fDA&ixlib=rb-4.0.3&q=80&w=1080", "https://images.unsplash.com/photo-1622266234859-e4654e3587d8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1MDcxMzJ8MHwxfHNlYXJjaHwxfHxiZWF1dGlmdWwlMjBkcmVzcyUyMDR8ZW58MHx8fHwxNzEyNjQ0ODUwfDA&ixlib=rb-4.0.3&q=80&w=1080", "https://images.unsplash.com/photo-1519554318711-aaf73ece6ff9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1MDcxMzJ8MHwxfHNlYXJjaHwxfHxiZWF1dGlmdWwlMjBkcmVzcyUyMDV8ZW58MHx8fHwxNzEyNjQ0ODUwfDA&ixlib=rb-4.0.3&q=80&w=1080", "https://images.unsplash.com/photo-1617187735632-727b180e432d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1MDcxMzJ8MHwxfHNlYXJjaHwxfHxiZWF1dGlmdWwlMjBkcmVzcyUyMDZ8ZW58MHx8fHwxNzEyNjQ0ODUxfDA&ixlib=rb-4.0.3&q=80&w=1080"];
