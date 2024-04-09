@@ -1,10 +1,23 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Box, VStack, Heading, Text, Image, SimpleGrid, Link, IconButton, Modal, ModalOverlay, ModalContent, ModalBody, ModalCloseButton } from "@chakra-ui/react";
 import { FaWhatsapp, FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
 const Index = () => {
   const [selectedImage, setSelectedImage] = useState(null);
   const [isOpen, setIsOpen] = useState(false);
+  const [bgIndex, setBgIndex] = useState(0);
+
+  const bgImages = ["https://images.unsplash.com/photo-1483985988355-763728e1935b?w=1080", "https://images.unsplash.com/photo-1524648829700-99c448a9bbbe?w=1080", "https://images.unsplash.com/photo-1543087903-1ac2ec7aa8c5?w=1080"];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setBgIndex((prevIndex) => (prevIndex + 1) % bgImages.length);
+    }, 7000);
+
+    return () => {
+      clearInterval(interval);
+    };
+  }, []);
 
   const openModal = (index) => {
     setSelectedImage(index);
@@ -33,12 +46,14 @@ const Index = () => {
         </Heading>
       </Box>
 
-      {/* About Me */}
-      <Box p={8}>
-        <Heading as="h2" size="2xl" mb={6} fontFamily="playfair display, serif">
-          About Me
-        </Heading>
-        <Text>Hi, I'm Sarah! I'm passionate about creating beautiful and elegant dresses for every occasion. With years of experience in fashion design, I strive to bring you the best quality dresses that make you feel confident and stunning.</Text>
+      {}
+      <Box p={8} backgroundImage={`url(${bgImages[bgIndex]})`} backgroundSize="cover" backgroundPosition="center" minHeight="400px" display="flex" alignItems="center" justifyContent="center" textAlign="center">
+        <Box bg="rgba(255, 255, 255, 0.8)" p={8} borderRadius="md">
+          <Heading as="h2" size="2xl" mb={6} fontFamily="playfair display, serif">
+            About Me
+          </Heading>
+          <Text>Hi, I'm Sarah! I'm passionate about creating beautiful and elegant dresses for every occasion. With years of experience in fashion design, I strive to bring you the best quality dresses that make you feel confident and stunning.</Text>
+        </Box>
       </Box>
 
       {/* Gallery */}
